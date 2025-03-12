@@ -21,6 +21,14 @@ console.log(n);
 // scope with in the function scope
 // intialized with undefined when it is not initialized
 
+/*
+Characteristics:
+Function-scoped: Accessible throughout the function where it is declared.
+Hoisted: Moves to the top during execution, but initialized as undefined.
+Can be redeclared in the same scope.
+Can be reassigned.
+ */
+
 function example_var() {
     console.log(a); // prints undefined if it accessed before declaration
     console.log(n); // accessing top level variable
@@ -72,4 +80,25 @@ let b = 10;
 // let b = 20; ❌ SyntaxError: Identifier 'b' has already been declared
 b = 30; // ✅ Allowed
 console.log(b); // 30
+
+// const (Block-Scoped, Cannot Be Reassigned or Redeclared)
+
+/*
+Characteristics:
+Block-scoped: Like let, limited to the {} block.
+Hoisted but not initialized (Cannot access before declaration → ReferenceError).
+Cannot be redeclared.
+Cannot be reassigned after initialization.
+Must be initialized when declared.
+ */
+
+const PI = 3.14;
+// PI = 3.14159; ❌ TypeError: Assignment to constant variable
+
+const person = { name: "John" };
+person.name = "Doe"; // ✅ Allowed (modifying object properties)
+console.log(person.name); // Doe
+
+// const x; ❌ SyntaxError: Missing initializer
+
 
